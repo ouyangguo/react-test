@@ -1,0 +1,153 @@
+//
+// Variables
+// --------------------------------------------------
+
+// images path
+// --------------------------------------------------
+
+$image-path: '../../../images/';
+
+//$image-path: 'http://h5.380star.com/life/assets/images/';
+
+// Global values
+
+$scale: 1;
+$max-width: 750px;
+
+// --------------------------------------------------
+
+//Colors
+
+// Grays
+// -------------------------
+
+$gray-darker: lighten(#000, 13.5%) !default;
+// #222
+$gray-dark: lighten(#000, 20%) !default;
+// #333
+$gray: lighten(#000, 33.5%) !default;
+// #555
+$gray-light: lighten(#000, 60%) !default;
+// #999
+$gray-lighter: lighten(#000, 93.5%) !default;
+// #eee
+
+// Brand colors
+// -------------------------
+
+$brand-primary: #428bca !default;
+
+//common colors
+// -------------------------
+$col-bg: #f2f2f2 !default;
+$col-disabled: #b2b2b2 !default;
+$col-white: #FFFFFF !default;
+$col-thinblue: #5EC9F1 !default;
+$col-thinred: #FD6D64 !default;
+$col-darkblue: #1AA8B2 !default;
+$col-orange: #F7934A !default;
+$col-lightgreen: #AEC688 !default;
+$col-border: #D8D8D8 !default;
+$col-333: #333 !default;
+$col-9b: #9b9b9b !default;
+
+$col-red: #FA5E71 !default;
+$col-gray: #f2f2f2 !default;
+$col-d8: #d8d8d8 !default;
+$col-888: #888 !default;
+$col-b2: #b2b2b2 !default;
+$col-f2: #f2f2f2 !default;
+
+// Scaffolding
+// -------------------------
+
+$body-bg: #fff !default;
+$text-color: $gray-dark !default;
+
+// Links
+// -------------------------
+
+$link-color: $brand-primary !default;
+$link-hover-color: darken($link-color, 15%) !default;
+
+// Typography
+// -------------------------
+
+$font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", sans-serif !default;
+$font-family-base: $font-family-sans-serif !default;
+
+$font-size-base: 1rem !default;
+$font-size-large: ceil($font-size-base * 1.25) !default;
+// ~18px
+$font-size-small: ceil($font-size-base * 0.85) !default;
+// ~12px
+
+$font-size-h1: floor($font-size-base * 2.6) !default;
+// ~36px
+$font-size-h2: floor($font-size-base * 2.15) !default;
+// ~30px
+$font-size-h3: ceil($font-size-base * 1.7) !default;
+// ~24px
+$font-size-h4: ceil($font-size-base * 1.25) !default;
+// ~18px
+$font-size-h5: $font-size-base !default;
+$font-size-h6: ceil($font-size-base * 0.85) !default;
+// ~12px
+
+$line-height-base: 1.428571429 !default;
+// 20/14
+$line-height-computed: floor($font-size-base * $line-height-base) !default;
+// ~20px
+
+// m-store Obj
+// main color
+$col-main: $col-red;
+$col-blue: #066B89;
+$col-gray: #f2f2f2;
+$col-d8: #d8d8d8;
+
+$designWidth: 640;
+//px2rem
+@function pr($px){
+  @return $px*320/$designWidth/20 + rem;
+}
+
+
+// 默认选择器前缀,不需要前缀设置为空
+$prefix : "";
+// 默认内容与边框的间距,第一个值nth($padding,1)为上下间距，第二个值nth($padding,2)为左右间距
+$padding: 10px 15px;
+// 默认边框颜色
+$border-default: $col-d8;
+
+// --------------------------------------
+// SearchBar设置
+// --------------------------------------
+// SearchBar高度
+$search-height: 29px;
+// SearchBar 字体大小
+$search-font-size: 12px;
+// SearchBar 输入框背景色
+$search-input-bg: #f7f7f7;
+// SearchBar 文字颜色
+$search-color: #8F8F90;;
+
+// --------------------------------------
+// article文章内容设置
+// --------------------------------------
+// article 字体大小
+$article-font-size: 13px;
+// article 段落间距
+$article-p: 10px;
+
+// --------------------------------------
+// 组件输出设置
+// --------------------------------------
+// 面板
+$enable-panel-classes:       true !default;
+// 列表
+$enable-list-classes:        true !default;
+// 搜索条
+$enable-search-classes:      true !default;
+// 文章内容
+$enable-article-classes:     true !default;

@@ -1,0 +1,56 @@
+@charset "UTF-8";
+// ************************************
+// * 文件编码：utf-8
+// * 开发版本：v1.0     2017.12.20  wenyang.zhou
+// * 文件说明：Panel
+// ************************************
+@if $enable-panel-classes {
+	.#{$prefix}panel{
+		position: relative;
+		background-color: $col-white;
+		&:before{
+			content: "";
+			position: absolute;
+			right: 0;
+			top: 0;
+			left: 0;
+			z-index: 2;
+			border-top: solid 1px $border-default;
+		    -webkit-transform: scaleY(0.5);
+		    transform: scaleY(0.5);
+		}
+		&:after{
+			content: "";
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 2;
+			border-bottom: solid 1px $border-default;
+		    -webkit-transform: scaleY(0.5);
+		    transform: scaleY(0.5);
+		}
+		.#{$prefix}cell, .#{$prefix}panel-hd{
+			&:before{
+				left: nth($padding,2);
+			}
+		}
+	}
+	.#{$prefix}panel-hd{
+		position: relative;
+		padding: $padding;
+		&:before{
+			content: "";
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			border-bottom: solid 1px $border-default;
+		    -webkit-transform: scaleY(0.5);
+		    transform: scaleY(0.5);
+		}
+	}
+	.#{$prefix}panel-bd{
+		padding: $padding;
+	}
+}

@@ -1,0 +1,89 @@
+@charset "UTF-8";
+// ************************************
+// * 文件编码：utf-8
+// * 开发版本：v1.0     2017.12.20  wenyang.zhou
+// * 文件说明：SearchBar
+// ************************************
+@if $enable-search-classes {
+	.#{$prefix}searchbar{
+	    position: relative;
+		height: $search-height;
+		line-height: $search-height;
+		font-size: $search-font-size;
+		@extend %#{$prefix}flex;
+	}
+	.#{$prefix}search{
+		position: relative;
+		background-color: $search-input-bg;
+		border-radius: $search-height;
+		color: $search-color;
+		padding-left: nth($padding,2);
+		padding-right: $search-height;
+		@extend %#{$prefix}flex-bd;
+		&:after{
+		    position: absolute;
+		    left: nth($padding,1);
+		    top: 50%;
+		    -webkit-transform: translateY(-50%);
+		    transform: translateY(-50%);
+		    content: "\e66b";
+		    font-family:"iconfont" !important;
+		    font-style:normal;
+		    -webkit-font-smoothing: antialiased;
+		    -moz-osx-font-smoothing: grayscale;
+		}
+		input[type='text'],input[type='search']{
+		    height: 100%;
+		    line-height: 100%;
+		    width: 100%;
+		    background: none;
+			padding-left: nth($padding,2);
+		}
+
+	}
+	.#{$prefix}search-closed{
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		width: $search-height;
+		text-align: center;
+		&:before{
+			content: "\e658";
+		    font-family:"iconfont" !important;
+		    font-style:normal;
+		}
+	}
+	.#{$prefix}search-btn{
+		margin-left: nth($padding,2)
+	}
+	.#{$prefix}search-label{
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 9;
+		border-radius: $search-height;
+		background-color: $search-input-bg;
+		//text-align: center;
+		color: $search-color;
+		> span{
+			position: relative;
+			padding-left: 1.5em;
+			margin: 0 nth($padding,1);
+			&:after{
+			    position: absolute;
+			    left: 0;
+			    top: 50%;
+			    -webkit-transform: translateY(-50%);
+			    transform: translateY(-50%);
+			    content: "\e66b";
+			    font-family:"iconfont" !important;
+			    font-style:normal;
+			    -webkit-font-smoothing: antialiased;
+			    -moz-osx-font-smoothing: grayscale;
+			}
+		}
+	}
+}

@@ -1,0 +1,30 @@
+@charset "UTF-8";
+@import "mixins";
+@import "variables";
+
+.group-btn {
+  padding: 0 1.05rem;
+}
+
+.btn {
+  display: inline-block;
+  @include line-height(100%, 2.85rem);
+  border: 1px solid #066B89;
+  border-radius: .3rem;
+  font-size: 1.15rem;
+  color: #066B89;
+  letter-spacing: .1rem;
+
+  margin: 15px 0;
+
+  &.actived {
+    color: $col-white;
+    background-color: #4A78AF;
+  }
+  &.unactived {
+    border: none;
+    color: $col-white;
+    background-color: $col-b2;
+  }
+
+}

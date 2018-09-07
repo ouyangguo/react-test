@@ -1,0 +1,76 @@
+@charset "UTF-8";
+// ************************************
+// * 文件编码：utf-8
+// * 开发版本：v1.0     2017.12.20  wenyang.zhou
+// * 文件说明：List
+// ************************************
+
+@if $enable-list-classes {
+  .#{$prefix}cell {
+    position: relative;
+    padding: $padding;
+    background-color: $col-white;
+    @extend %#{$prefix}flex;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    overflow: hidden;
+    -webkit-transition: transform .3s;
+    transition: transform .3s;
+    &:last-child:before{
+      display: none;
+    }
+    &:before{
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 2;
+      border-bottom: solid 1px $border-default;
+      -webkit-transform: scaleY(0.5);
+      transform: scaleY(0.5);
+    }
+    // &:nth-child(odd){
+    //  background-color: $color-bg;
+    // }
+  }
+  .#{$prefix}cell-bd {
+    @extend %#{$prefix}flex-bd;
+    position: relative;
+    z-index: 1;
+  }
+  // .#{$prefix}cell-move {
+  //   padding: 0;
+  // }
+  // .#{$prefix}cell-left,.#{$prefix}cell-right {
+  //   position: absolute;
+  //   top: 0;
+  //   bottom: 0;
+  // }
+  // .#{$prefix}cell-left{
+  //   left: 0;
+  // }
+  // .#{$prefix}cell-right {
+  //   right: 0;
+  // }
+  // .#{$prefix}cell-btn{
+  //   min-width: 4rem;
+  //   display: inline-block;
+  //   box-sizing:border-box;
+  //   text-align: center;
+  //   color: $col-white;
+  //   padding: $padding;
+  //   &.cell-btn-danger{
+  //     background-color: $col-danger;
+  //   }
+  //   &.cell-btn-success{
+  //     background-color: $col-success;
+  //   }
+  // }
+  // .#{$prefix}cell-tips{
+  //   padding: $padding;
+  //   font-size: 85%;
+  //   color: $col-999;
+  // }
+}

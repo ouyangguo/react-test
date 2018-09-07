@@ -1,0 +1,28 @@
+
+.m-carousel {
+    background-color: #fff;
+    height: auto;
+    /*margin-top: pr(88);*/
+}
+.m-carousel-inner {
+    height: auto;
+}
+.m-carousel-inner .m-item {
+    position: relative;
+}
+.m-carousel-inner .m-item .item {
+    display: table;
+    margin: 0 auto;
+}
+.m-carousel-inner .m-item .imgbox {
+    width: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+.m-carousel-photos .m-item img {
+    max-width: 100%;
+}
+.ad-wrap ul {
+    display: flex;
+}

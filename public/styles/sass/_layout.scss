@@ -1,0 +1,251 @@
+@charset "UTF-8";
+@import "mixins";
+@import "variables";
+%#{$prefix}flex {
+    display: -webkit-box; // Chrome 4+, Safari 3.1, iOS Safari 3.2+
+    display: -moz-box; // Firefox 17-
+    display: -webkit-flex; // Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16
+    display: -moz-flex; // Firefox 18+
+    display: -ms-flexbox; // IE 10
+    display: flex; // Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+
+}
+%#{$prefix}flex-bd{
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex:1;
+  -ms-flex:1;
+  flex:1;
+}
+
+$image-path: '../../images/';
+
+[data-role="page"] {
+  margin: 0 auto;
+  background-color: #f3f3f3;
+  //max-width: $max-width;
+}
+body{
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.wrapper {
+  position: absolute;
+  z-index: 9;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: transparent;
+  //bottom: 48px;
+  //width: 100%;
+  //height: 100%;
+  //overflow: hidden;
+  //overflow: hidden;
+
+}
+// .container {
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   top: 0;
+//   bottom: 0;
+//   overflow-y: auto !important;
+//   -webkit-overflow-scrolling: touch;
+//   max-width: 640px;
+//   margin-left: auto;
+//   margin-right: auto;
+//   // &::-webkit-scrollbar {
+//   //   width: 0;
+//   // }
+//   &.has-topbottom{
+//     top: 44px !important;
+//     bottom: 49px !important;
+//   }
+// }
+// 文本超出省略...
+.text-ellipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  word-wrap: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.scroller {
+  position: absolute;
+  top: 0;
+  //bottom: 0;
+  z-index: 1;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  width: 100%;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+.v-align{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.arr-right {
+  cursor: pointer;
+  color: $col-disabled;
+  text-align: right;
+  &:after {
+    display: inline-block;
+    content: ' ';
+    @include size(0.505rem, .9rem);
+    line-height: 1;
+    margin-left: 10px;
+    margin-top: -4px;
+    vertical-align: middle;
+    background-size: 0.505rem .9rem !important;
+    @include background($image-path, 'right_arrow@3x.png', center no-repeat);
+  }
+}
+.arrow-right{
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  color: #b2b2b2;
+  margin-right: -.2em;
+  display: inline-block;
+  &:before{
+    content: "\e664";
+    font-family:"iconfont" !important;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.group-list {
+  background-color: $col-white;
+  border-top: 1px solid $col-border;
+  border-bottom: 1px solid $col-border;
+
+  margin-bottom: .7rem;
+
+  .ls-item {
+    height: 3.15rem;
+    padding-left: 1.05rem;
+
+    //border: 1px solid red;
+    .inner {
+      height: 100%;
+      //padding: .95rem 0 .95rem;
+      border-bottom: 1px solid #D8D8D8;
+      font-size: .95rem;
+      label {
+        height: 100%;
+        //background: green;
+        display: inline-block;
+        float: left;
+        line-height: 44px;
+        width: 30%;
+        @include line-height(auto, 3.15rem);
+      }
+
+      input {
+        border: none;
+        text-indent: .95rem;
+        color: #626262;
+        background-color: transparent;
+        //background-color: red;
+        @include size(40%, 3.15rem);
+      }
+    }
+    .r-con {
+      position: relative;
+      float: right;
+      padding-right: 1.05rem;
+      @include line-height(auto, 3.15rem);
+      text-align: right;
+
+      label {
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        height: 100%;
+        padding-left: .35rem;
+        margin-left: .35rem;
+        text-indent: 1.05rem;
+        background-size: 1.05rem !important;
+
+        @include background($image-path, 'ico-radio-unchecked@3x.png', left center no-repeat);
+
+        &.checked {
+          @include background($image-path, 'ico-radio-checked@3x.png', left center no-repeat);
+
+        }
+      }
+      //input[type="datetime"],
+      input[type="radio"],
+      input[type="checkbox"] {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        z-index: -1;
+      }
+
+      input[type*="date"] {
+        //padding-right: 1.05rem;
+        width: 80%;
+        text-align: right;
+      }
+
+    }
+
+    &:last-of-type .inner {
+      border-bottom: none;
+    }
+
+  }
+}
+
+.group-title {
+
+  color: $col-9b;
+  padding-left: 1.05rem;
+  font-size: .85rem;
+
+}
+
+.go-top {
+  @include square(pr(72));
+  position: fixed;
+  z-index: 99;
+  bottom: pr(30);
+  right: pr(30);
+
+  @include background($image-path, 'common_icon_top@3x.png', center no-repeat);
+  background-size: contain;
+  a {
+    display: inline-block;
+    @include size(100%, 100%);
+  }
+
+}
+.isbrowser {
+  .go-top {
+    bottom: pr(128);
+  }
+}

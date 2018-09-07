@@ -1,0 +1,16 @@
+@charset "UTF-8";
+// ************************************
+// * 文件编码：utf-8
+// * 开发版本：v1.0     2017.12.20  wenyang.zhou
+// * 文件说明：article
+// ************************************
+@if $enable-article-classes {
+	.#{$prefix}article{
+		padding: $padding;
+		font-size: $article-font-size;
+		p{
+			margin-bottom: $article-p;
+		}
+	}
+
+}

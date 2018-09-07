@@ -1,0 +1,547 @@
+//
+
+@import '../variables';
+@import '../mixins';
+
+body {
+  @include fontSizeFix(14);
+  background: $col-f2;
+  width: 16rem;
+  margin: 0 auto;
+}
+.base-pad {
+  padding: pr(20) pr(30);
+}
+.list-wrap {
+  //列表样式一
+  &.ls-1 {
+    li {
+      margin-bottom: pr(20);
+      //border-width: 1px 0;
+      //border-style: solid;
+      //border-color: $col-d8;
+    }
+  }
+  //列表样式二
+  &.ls-2 {
+    li {
+      position: relative;
+      &:after {
+        @include border-1px(pr(30),0,100%,1px,#eee);
+      }
+      &:last-child:after {
+        display: none;
+      }
+    }
+  }
+  li {
+    background: $col-white;
+    a {
+      display: block;
+      overflow: hidden;
+    }
+    .list-top {
+      @extend .base-pad;
+      overflow: hidden;
+    }
+    .list-left {
+      position: relative;
+      &.storeLog {
+        @include square(pr(100));
+        border: 1px solid $col-d8;
+      }
+      &.goodsImg {
+        @include square(pr(180));
+      }
+      img {
+        @include square(100%);
+      }
+      .act-tag {
+        position: absolute;
+        left: 0;
+        top: 0;
+        max-width: pr(125);
+        @include text-ellipsis(auto);
+        color: white;
+        background: #FE3F35;
+        padding: 0 3px;
+        @include fontSizeFix(12);
+      }
+    }
+    .list-right {
+      padding-left: pr(20);
+      &.storeInfo {
+        @include size(pr(480),pr(100));
+        @include flex-col-align();
+      }
+      &.goodsInfo {
+        @include size(pr(400),pr(180));
+        position: relative;
+      }
+      .totalInfo {
+        color: $col-b2;
+        @include fontSizeFix(12);
+        span {
+          margin-right: pr(20);
+        }
+      }
+      .store-name {
+        line-height: 18px;
+        //@include text-overflow4MultiLine(1);
+        span {
+          display: inline-block;
+          @include text-overflow();
+          max-width: pr(400);
+          vertical-align: middle;
+        }
+        i {
+          display: inline-block;
+          vertical-align: middle;
+          @include square(18px);
+          margin-left: pr(10);
+        }
+      }
+      .goods-tit {
+        line-height: 1.385;
+        @include text-overflow4MultiLine(2);
+        @include fontSizeFix(13);
+        margin-bottom: pr(20);
+      }
+      .price {
+        width: pr(380);
+        color: $col-red;
+        @include fontSizeFix(15);
+        position: absolute;
+        top: pr(90);
+        .comm-btn {
+          @include fontSizeFix(11);
+          border-radius: 2px;
+          background: none;
+        }
+        span {
+          vertical-align: middle;
+          margin: 0 pr(5) 0 0;
+        }
+        .sales {
+          float: right;
+          color: #888;
+          font-size: 12px;
+          line-height: 24px;
+        }
+      }
+    }
+    &:first-child {
+      border-top: 0 none;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .comm-btn {
+      padding: 1px;
+      margin-right: 10px;
+      margin-bottom: pr(20);
+      @include fontSizeFix(12);
+      background: #ffecee;
+      border-radius: 2px;
+      min-width: inherit;
+    }
+    .sale-tags {
+      border-top: 1px solid #eee;
+      margin-left: pr(30);
+      padding: pr(20) pr(30) 0 0;
+      font-size: 0;
+      p {
+        line-height: 1;
+        margin-bottom: pr(20);
+        @include fontSizeFix(12);
+      }
+    }
+  }
+}
+//购物车图标
+.shopping-car {
+  @include square(40px);
+  position: fixed;
+  z-index: 99;
+  bottom: pr(137);
+  right: pr(20);
+  @include background($image-path, 'icon_shopping_car@2x.png', center no-repeat);
+  background-size: contain;
+  span {
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    @include square(18px);
+    right: 0;
+    top: 0;
+    z-index: 99;
+    line-height: 18px;
+    background-color: #fb413d;
+    color: $col-white;
+    border-radius: 100%;
+    @include fontSizeFix(11);
+  }
+}
+
+//企业生活
+.el-wrap {
+  .ew-head {
+    background: linear-gradient(-180deg, #2A62EF 7%, #289AF5 51%, #27C5FA 83%, #26D5FC 100%);
+    padding: pr(60) pr(30) pr(20);
+    color: #fff;
+    h3 {
+      font-size: pr(36);
+      margin-bottom: pr(15);
+      line-height: pr(42);
+      padding-left: pr(60);
+      &.yg-join {
+        @include background($image-path,'qylife/commone_icon_personnel_white@3x.png',left center no-repeat);
+        background-size: pr(40) pr(40);
+      }
+      &.rzsq {
+        @include background($image-path,'qylife/common_icon_company_white@3x.png',left center no-repeat);
+        background-size: pr(40) pr(40);
+      }
+    }
+    p {
+      padding-left: pr(60);
+      font-size: pr(26);
+      line-height: pr(36);
+    }
+    h2 {
+      text-align: center;
+      line-height: 100%;
+      margin-bottom: pr(40);
+    }
+    .type-tit {
+      display: inline-block;
+      font-size: pr(36);
+      font-weight: bold;
+      padding-top: pr(100);
+      &.kma {
+        @include background($image-path,'qylife/icon_card_white@3x.png',center top no-repeat);
+        background-size: pr(80) pr(80);
+      }
+      &.ema {
+        @include background($image-path,'qylife/icon_mail_white@3x.png',center top no-repeat);
+        background-size: pr(80) pr(80);
+      }
+    }
+  }
+  .activ-type {
+    background: #fff;
+    li {
+      border-bottom: 1px solid #eee;
+      padding: pr(20) pr(66) pr(20) pr(30);
+      @include background($image-path,'right_arrow@3x.png',pr(594) center no-repeat);
+      background-size: pr(16) pr(26);
+      &:last-child {
+        border-bottom: 0 none;
+      }
+      h4 {
+        font-size: pr(28);
+        line-height: pr(62);
+        font-weight: normal;
+        margin-bottom: pr(18);
+      }
+      .type-1 {
+        @include background($image-path,'qylife/icon_card_bule@3x.png',left center no-repeat);
+        background-size: pr(60) pr(60);
+        padding-left: pr(80);
+      }
+      .type-2 {
+        @include background($image-path,'qylife/icon_mail_bule@3x.png',left center no-repeat);
+        background-size: pr(60) pr(60);
+        padding-left: pr(80);
+      }
+      p {
+        color: #9b9b9b;
+        font-size: pr(20);
+        span {
+          color: #626262;
+        }
+      }
+    }
+  }
+//  卡密激活
+  .fill-cont {
+    border-bottom: 1px solid #eee;
+    li {
+      padding: pr(30);
+      border-bottom: 1px solid #eee;
+      &:last-child {
+        border-bottom: 0 none;
+      }
+      input {
+        width: 100%;
+        line-height: 100%;
+        color: #333;
+        &::-webkit-input-placeholder {
+          color: #B2B2B2;
+        }
+      }
+    }
+    + p {
+      text-align: justify;
+    }
+  }
+  .operate-wrap {
+    .comm-btn {
+      width: 100%;
+      color: #fff;
+      border: 0 none;
+      margin: pr(60) 0 0;
+      font-size: pr(30);
+      line-height: 1.3;
+      &.gray-btn {
+        background: #B2B2B2;
+      }
+      &.curr-btn {
+        background: #017bfa;
+      }
+    }
+  }
+// 成功
+  .succ-cont {
+    padding: pr(40) pr(30) 0;
+    .stat-wrap {
+      text-align: center;
+      img {
+        @include square(pr(82));
+      }
+    }
+    p {
+      margin: pr(60) 0 pr(20);
+      font-size: pr(26);
+      line-height: pr(46);
+    }
+  }
+  //入驻申请
+  .fb-wrap {
+    background: #fff;
+    .look-exa {
+      color: #017bfa;
+      margin-left: pr(20);
+    }
+    .comm-btn {
+      margin-top: 0;
+    }
+  }
+}
+
+//企业生活购物车
+.cart-wrap {
+  font-size: 13px;
+  padding-bottom: 93px;
+}
+.check-cont {
+  position: absolute;
+  left: pr(20);
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  label {
+    display: block;
+    @include square(20px);
+    @include background($image-path, 'common_btn_choice_n@3x.png', no-repeat);
+    background-size: contain;
+    &.selected {
+      @include background($image-path, 'common_btn_choice_s@3x.png', no-repeat);
+      background-size: contain;
+    }
+  }
+}
+
+.list-cont {
+  li {
+    position: relative;
+    padding: 10px pr(20) 10px pr(78);
+    background: #fff;
+    clear: both;
+    overflow: hidden;
+    &:after {
+      @include border-1px(pr(20),0,100%,1px,#eee);
+    }
+    &.no-sale {
+      background: #f7f7f7;
+      border-bottom: 0 none;
+      &:after {
+        display: none;
+      }
+      .goods-title {
+        color: #b2b2b2;
+      }
+    }
+    &:last-child {
+      &:after {
+        display: none;
+      }
+    }
+  }
+  .goods-pic {
+    @include square(pr(184));
+    margin-right: pr(20);
+    position: relative;
+    .mask-b {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      @include size(100%,pr(30));
+      background: rgba(0,0,0,.4);
+      color: white;
+      font-size: 12px;
+      text-align: center;
+      line-height: pr(30);
+    }
+    .mask-c {
+      position: absolute;
+      left: 0;
+      top: 0;
+      @include square(100%);
+      &.soldout {
+        @include background($image-path,'qylife/common_icon_soldout1@3x.png',no-repeat center);
+        background-size: 80% auto;
+      }
+      &.shelves {
+        @include background($image-path,'qylife/common_icon_soldout2@3x.png',no-repeat center);
+        background-size: 80% auto;
+      }
+    }
+    img {
+      @include square(100%);
+    }
+  }
+  .goods-desc {
+    width: pr(338);
+  }
+  .goods-title {
+    @include text-overflow4MultiLine(2);
+    line-height: 18px;
+    height: 36px;
+  }
+  .goods-ins {
+    font-size: 12px;
+    color: #b2b2b2;
+  }
+  .price-cont {
+    position: absolute;
+    bottom: 10px;
+    left: pr(285);
+    span {
+      display: block;
+    }
+    .del-price {
+      font-size: 12px;
+      color: #b2b2b2;
+      text-decoration: line-through;
+    }
+    .sale-price {
+      font-size: 14px;
+      color: $col-red;
+      line-height: 1;
+    }
+  }
+}
+.plusminus {
+  position: absolute;
+  right: pr(20);
+  bottom: 10px;
+  font-size: 0;
+  border: 1px solid #dfdfdf;
+  border-radius: 2px;
+  text-align: center;
+  i {
+    @include size(pr(53),pr(48));
+    display: inline-block;
+    vertical-align: middle;
+    line-height: pr(48);
+  }
+  .minus {
+    border-right: 1px solid #dfdfdf;
+    @include background($image-path,'qylife/common_btn_shopping_minus_d@3x.png',no-repeat center);
+    background-size: 35% auto;
+    &.allows {
+      @include background($image-path,'qylife/common_btn_shopping_minus_n@3x.png',no-repeat center);
+      background-size: 35% auto;
+    }
+  }
+  .plus {
+    border-left: 1px solid #dfdfdf;
+    @include background($image-path,'qylife/common_btn_shopping_plus_d@3x.png',no-repeat center);
+    background-size: 35% auto;
+    &.allows {
+      @include background($image-path,'qylife/common_btn_shopping_plus_n@3x.png',no-repeat center);
+      background-size: 35% auto;
+    }
+  }
+  input {
+    display: inline-block;
+    background: transparent;
+    @include size(pr(70),pr(48));
+    vertical-align: middle;
+    text-align: center;
+    font-size: 13px;
+    &.ipt-edit {
+      width: pr(228);
+    }
+  }
+}
+.settle-wrap {
+  background: white;
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 49px;
+  border-top: 1px solid #eee;
+  max-width: 640px;
+  height: 44px;
+  margin: 0 auto;
+  .check-txt {
+    margin-left: 13px;
+    font-size: 14px;
+  }
+  .sw-l {
+    width: pr(426);
+    padding: 6px 0 6px pr(180);
+    font-size: 12px;
+    line-height: 1;
+  }
+  .amount {
+    font-size: 14px;
+    margin-bottom: 5px;
+    em {
+      color: $col-red;
+    }
+  }
+  .sw-r {
+    width: pr(214);
+    text-align: center;
+    height: 100%;
+    background: #9a9a9a;
+    color: #fff;
+    line-height: 44px;
+    font-size: 16px;
+  }
+  .canCheck {
+    background: $col-red;
+  }
+}
+.gotoDetail {
+  overflow: hidden
+}
+.blank-wrap {
+    text-align: center;
+    font-size: pr(24);
+    color: #9b9b9b;
+    padding-top: 4rem;
+    background: #FFFFFF;
+    img {
+      width: 25%
+    }
+    p{
+      margin: pr(20) 0 pr(40) 0
+    }
+    a{
+      font-size: pr(26) !important
+    }
+}

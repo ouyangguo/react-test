@@ -1,0 +1,69 @@
+@charset "UTF-8";
+@import "mixins";
+@import "variables";
+.isbrowser .footer-wrap{
+  display: block;
+}
+/* 底部悬浮 */
+.ft-fixed{
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 9999;
+    box-sizing: content-box;
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+	~ .container{
+		padding-bottom: pr(98) !important;
+	}
+}
+.footer-wrap{
+	height: pr(98);
+	background-color: #fff;
+	border-top: solid 1px #d8d8d8;
+	//max-width: 640px;
+	//margin-left: auto;
+	//margin-right: auto;
+	display: none;
+	li{
+		float: left;
+		width: 25%;
+		height: pr(98);
+		font-size: pr(20);
+		text-align: center;
+		padding-top: 4px;
+		line-height: 1.3;
+		&.active{
+			color: #FF0A31;
+			.ui-nav1{
+				&:before { content: "\e676"; }
+			}
+			.ui-nav4{
+				&:before { content: "\e673"; }
+			}
+			.ui-nav5{
+				&:before { content: "\e669"; }
+			}
+		}
+	}
+	.ui-nav1,.ui-nav2,.ui-nav3,.ui-nav4,.ui-nav5{
+		font-size: pr(48);
+		line-height: 1.2;
+	}
+	.ui-nav1{
+		&:before { content: "\e675"; }
+	}
+	.ui-nav2{
+		&:before { content: "\e66c"; }
+	}
+	.ui-nav3{
+		&:before { content: "\e672"; }
+	}
+	.ui-nav4{
+		&:before { content: "\e670"; }
+	}
+	.ui-nav5{
+		&:before { content: "\e66f"; }
+	}
+}
